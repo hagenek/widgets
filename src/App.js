@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Accordion from "./components/Accordion"
 import Search from "./components/Search"
+import Dropdown from "./components/Dropdown"
+import Greed from "./components/Greed"
 
 const items = [
   {
@@ -17,11 +19,37 @@ const items = [
   },
 ]
 
+const options = [
+  {
+    label: "Princely Red",
+    value: "red"
+  },
+  {
+    label: "A Shade of Blue",
+    value: "blue"
+  },
+  {
+    label: "Smashing Violet",
+    value: "violet"
+  }
+]
+
 export default () =>{
+
+  const [selected, setSelected] = useState(options[0])
 
   return (
   <div className="ui container">
     <br />
-    <Search />
+    <Dropdown 
+    options={options}
+    selected={selected}
+    onSelectedChange={setSelected}/>
   </div>
   )}
+/*   return (
+  <div className="ui container">
+    <br />
+    <Greed /> 
+  </div>
+  )} */
